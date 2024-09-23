@@ -83,7 +83,7 @@ set A0_FILTER "\
     [mic]"
 
 # Mix two labeled audio streams with specified weights.
-set MIX_AUDIO "amix=inputs=2:duration=first:dropout_transition=3:weights=0.5 1"
+set MIX_AUDIO "amix=inputs=2:weights=0.5 1"
 
 # Resample audio with asynchronous mode.
 set RESAMPLE "aresample=async=1"
