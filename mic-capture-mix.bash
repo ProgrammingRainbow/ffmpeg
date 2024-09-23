@@ -78,7 +78,7 @@ A0_FILTER="\
     $A0_EQUALIZER,\
     $A0_COMPRESSOR,\
     $A0_LIMIT\
-    [aout]"
+    [mic]"
 
 ffmpeg \
     -f pulse \
