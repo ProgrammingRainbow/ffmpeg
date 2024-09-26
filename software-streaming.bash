@@ -102,9 +102,8 @@ A1_FILTER="\
 FILTER_COMPLEX="$A0_FILTER; $A1_FILTER"
 
 VIDEO_FILTERS="\
-    scale=in_range=full:out_range=full,\
     eq=saturation=1:contrast=1:gamma=1,\
-    format=nv12"
+    format=nv12:color_ranges=pc"
 
 #notify-send "FFmpeg Starting" "Streaming Live on Twitch and YouTube."
 #ffmpeg \

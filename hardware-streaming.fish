@@ -102,8 +102,8 @@ set A1_FILTER "\
 set FILTER_COMPLEX "$A0_FILTER; $A1_FILTER"
 
 set VIDEO_FILTERS "\
-    format=nv12:color_ranges=pc,\
     eq=saturation=1:contrast=1:gamma=1,\
+    format=nv12:color_ranges=pc,\
     hwupload"
 
 #notify-send "FFmpeg Starting" "Streaming Live on Twitch and YouTube."
