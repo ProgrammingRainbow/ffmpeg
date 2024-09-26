@@ -109,7 +109,6 @@ VIDEO_FILTERS="\
 #notify-send "FFmpeg Starting" "Streaming Live on Twitch and YouTube."
 #ffmpeg \
     # -probesize 20M \
-    # -vaapi_device /dev/dri/renderD128 \
     # -f pulse \
     # -i "$A0_INPUT" \
     # -f pulse \
@@ -119,20 +118,20 @@ VIDEO_FILTERS="\
     # -s 1920x1080 \
     # -r 30 \
     # -i :0 \
-    # -vf "$VIDEO_FILTERS" \
     # -color_range full \
     # -color_trc bt709 \
     # -color_primaries bt709 \
     # -colorspace bt709 \
+    # -vf "$VIDEO_FILTERS" \
     # -map "[aout]" \
     # -map 2:v \
     # -ac 2 \
     # -c:a aac \
-    # -c:v h264_vaapi \
+    # -c:v libx264 \
     # -qp 15 \
     # -f tee \
-#"[f=flv:onfail=ignore]rtmp://live.twitch.tv/app/$TWITCH_KEY|\
-#[f=flv:onfail=ignore]rtmp://a.rtmp.youtube.com/live2/$YOUTUBE_KEY|\
+#"[f=flv:onfail=ignore]rtmps://live.twitch.tv/app/$TWITCH_KEY|\
+#[f=flv:onfail=ignore]rtmps://a.rtmp.youtube.com/live2/$YOUTUBE_KEY|\
 #[f=mp4]$DIRECTORY/$FILE"
 
 notify-send "FFmpeg Starting" "Streaming Locally to $FILE."
@@ -147,11 +146,11 @@ ffmpeg \
     -s 1920x1080 \
     -r 30 \
     -i :0 \
-    -vf "$VIDEO_FILTERS" \
     -color_range full \
     -color_trc bt709 \
     -color_primaries bt709 \
     -colorspace bt709 \
+    -vf "$VIDEO_FILTERS" \
     -map "[aout]" \
     -map 2:v \
     -ac 2 \
